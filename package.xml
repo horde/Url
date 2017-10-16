@@ -16,7 +16,7 @@
   <email>slusarz@horde.org</email>
   <active>yes</active>
  </lead>
- <date>2017-08-01</date>
+ <date>2017-10-17</date>
  <version>
   <release>2.2.7</release>
   <api>2.2.0</api>
@@ -31,13 +31,6 @@
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
-   <dir name="doc">
-    <dir name="Horde">
-     <dir name="Url">
-      <file name="COPYING" role="doc" />
-     </dir> <!-- /doc/Horde/Url -->
-    </dir> <!-- /doc/Horde -->
-   </dir> <!-- /doc -->
    <dir name="lib">
     <dir name="Horde">
      <dir name="Url">
@@ -65,6 +58,7 @@
      </dir> <!-- /test/Horde/Url -->
     </dir> <!-- /test/Horde -->
    </dir> <!-- /test -->
+   <file name="LICENSE" role="doc" />
   </dir> <!-- / -->
  </contents>
  <dependencies>
@@ -97,10 +91,10 @@
  </dependencies>
  <phprelease>
   <filelist>
-   <install as="COPYING" name="doc/Horde/Url/COPYING" />
    <install as="Horde/Url.php" name="lib/Horde/Url.php" />
    <install as="Horde/Url/Data.php" name="lib/Horde/Url/Data.php" />
    <install as="Horde/Url/Exception.php" name="lib/Horde/Url/Exception.php" />
+   <install as="LICENSE" name="LICENSE" />
    <install as="Horde/Url/AddTest.php" name="test/Horde/Url/AddTest.php" />
    <install as="Horde/Url/AllTests.php" name="test/Horde/Url/AllTests.php" />
    <install as="Horde/Url/bootstrap.php" name="test/Horde/Url/bootstrap.php" />
@@ -427,7 +421,7 @@
    <stability>
     <release>stable</release>
     <api>stable</api></stability>
-   <date>2017-08-01</date>
+   <date>2017-10-17</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
 * 
