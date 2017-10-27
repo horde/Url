@@ -5,3 +5,34 @@ full: URL library
 description: This class represents a single URL and provides methods for manipulating URLs.
 list: dev
 type: library
+homepage: https://www.horde.org/libraries/Horde_Url
+authors:
+  -
+    name: Jan Schneider
+    user: jan
+    email: jan@horde.org
+    active: true
+    role: lead
+  -
+    name: Michael Slusarz
+    user: slusarz
+    email: slusarz@horde.org
+    active: true
+    role: lead
+version:
+  release: 2.2.7
+  api: 2.2.0
+state:
+  release: stable
+  api: stable
+license:
+  identifier: LGPL-2.1
+  uri: http://www.horde.org/licenses/lgpl21
+dependencies:
+  required:
+    php: ^5.3 || ^7
+    pear:
+      pear.horde.org/Horde_Exception: ^2
+  optional:
+    pear:
+      pear.horde.org/Horde_Test: ^2.1
