@@ -2,7 +2,7 @@
 id: Url
 name: Url
 full: URL library
-description: This class represents a single URL and provides methods for manipulating URLs.
+description: A library that provides URL objects and methods for manipulating URLs.
 list: dev
 type: library
 homepage: https://www.horde.org/libraries/Horde_Url
