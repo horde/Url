@@ -11,6 +11,10 @@
  * @package    Url
  * @subpackage UnitTests
  */
+namespace Horde\Url;
+use \PHPUnit\Framework\TestCase;
+use \Horde_Url;
+use \Horde_Url_Data;
 
 /**
  * Tests for the Horde_Url_Data class.
@@ -24,7 +28,7 @@
  * @subpackage UnitTests
  */
 
-class Horde_Url_UrlDataTest extends PHPUnit_Framework_TestCase
+class UrlDataTest extends TestCase
 {
     public function testParsingDataUrl()
     {

@@ -6,8 +6,11 @@
  * @package    Url
  * @subpackage UnitTests
  */
+namespace Horde\Url;
+use \PHPUnit\Framework\TestCase;
+use \Horde_Url;
 
-class Horde_Url_ConstructorTest extends PHPUnit_Framework_TestCase
+class ConstructorTest extends TestCase
 {
     public function testCopyAllParamsFromOriginal()
     {
