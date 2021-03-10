@@ -6,8 +6,11 @@
  * @package    Url
  * @subpackage UnitTests
  */
+namespace Horde\Url;
+use \PHPUnit\Framework\TestCase;
+use \Horde_Url;
 
-class Horde_Url_AddTest extends PHPUnit_Framework_TestCase
+class AddTest extends TestCase
 {
     public function testAddSimple()
     {

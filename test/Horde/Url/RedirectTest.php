@@ -6,17 +6,16 @@
  * @package    Url
  * @subpackage UnitTests
  */
+namespace Horde\Url;
+use \PHPUnit\Framework\TestCase;
+use \Horde_Url;
 
-class Horde_Url_RedirectTest extends PHPUnit_Framework_TestCase
+class RedirectTest extends TestCase
 {
     public function testEmptyRedirect()
     {
+        $this->expectException('Horde_Url_Exception');
         $url = new Horde_Url('');
-
-        try {
-            $url->redirect();
-            $this->fail();
-        } catch (Horde_Url_Exception $e) {}
+        $url->redirect();
     }
-
 }

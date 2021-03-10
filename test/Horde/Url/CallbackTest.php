@@ -6,8 +6,11 @@
  * @package    Url
  * @subpackage UnitTests
  */
+namespace Horde\Url;
+use \PHPUnit\Framework\TestCase;
+use \Horde_Url;
 
-class Horde_Url_CallbackTest extends PHPUnit_Framework_TestCase
+class CallbackTest extends TestCase
 {
     public function testRemoveRaw()
     {
