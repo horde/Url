@@ -266,7 +266,7 @@ class Horde_Url
             ? $this->url
             : parse_url($this->url, PHP_URL_PATH);
 
-        if (strlen($this->pathInfo)) {
+        if (is_string($this->pathInfo) && strlen($this->pathInfo)) {
             $url = rtrim($url, '/') . '/';
             if ($raw) {
                 $url .= $this->pathInfo;
