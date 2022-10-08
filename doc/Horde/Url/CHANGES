@@ -2,7 +2,8 @@
 v3.0.0alpha4
 ------------
 
-
+[rla] Safeguard against a type error.
+|+
 
 
 ------------
