@@ -7,10 +7,11 @@
  * @subpackage UnitTests
  */
 
-class Horde_Url_RedirectTest extends PHPUnit_Framework_TestCase
+class Horde_Url_RedirectTest extends Horde_Test_Case
 {
     public function testEmptyRedirect()
     {
+        $this->expectNotToPerformAssertions();
         $url = new Horde_Url('');
 
         try {

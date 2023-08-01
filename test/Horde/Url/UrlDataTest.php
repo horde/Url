@@ -24,7 +24,7 @@
  * @subpackage UnitTests
  */
 
-class Horde_Url_UrlDataTest extends PHPUnit_Framework_TestCase
+class Horde_Url_UrlDataTest extends Horde_Test_Case
 {
     public function testParsingDataUrl()
     {

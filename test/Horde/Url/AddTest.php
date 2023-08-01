@@ -7,7 +7,7 @@
  * @subpackage UnitTests
  */
 
-class Horde_Url_AddTest extends PHPUnit_Framework_TestCase
+class Horde_Url_AddTest extends Horde_Test_Case
 {
     public function testAddSimple()
     {

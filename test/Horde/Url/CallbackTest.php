@@ -7,7 +7,7 @@
  * @subpackage UnitTests
  */
 
-class Horde_Url_CallbackTest extends PHPUnit_Framework_TestCase
+class Horde_Url_CallbackTest extends Horde_Test_Case
 {
     public function testRemoveRaw()
     {

@@ -7,7 +7,7 @@
  * @subpackage UnitTests
  */
 
-class Horde_Url_LinkTest extends PHPUnit_Framework_TestCase
+class Horde_Url_LinkTest extends Horde_Test_Case
 {
     public function testLink()
     {
