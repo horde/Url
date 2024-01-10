@@ -2,7 +2,9 @@
 v3.0.0alpha5
 ------------
 
-
+[rla] Drop own implementation of query string formatting in favour of PHP
+      builtin solution.
+|+
 
 
 ------------

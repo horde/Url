@@ -16,7 +16,7 @@
   <email>slusarz@horde.org</email>
   <active>no</active>
  </lead>
- <date>2022-10-08</date>
+ <date>2024-01-10</date>
  <version>
   <release>3.0.0alpha5</release>
   <api>3.0.0alpha1</api>
@@ -27,7 +27,8 @@
  </stability>
  <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1-only</license>
  <notes>
-* 
+* [rla] Drop own implementation of query string formatting in favour of PHP builtin solution.
+* |+
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -110,32 +111,6 @@
   </filelist>
  </phprelease>
  <changelog>
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
   <release>
    <version>
     <release>1.0.0alpha1</release>
@@ -545,9 +520,10 @@
     <api>alpha</api>
    </stability>
    <date>2022-10-08</date>
-   <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
+   <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1-only</license>
    <notes>
-* 
+* [rla] Drop own implementation of query string formatting in favour of PHP builtin solution.
+* |+
    </notes>
   </release>
  </changelog>
