@@ -71,13 +71,6 @@ class Horde_Url
     public $url;
 
     /**
-     * Cached parameter list for use in toString().
-     *
-     * @var array
-     */
-    protected $_cache;
-
-    /**
      * Constructor.
      *
      * @param string|Horde_Url $url  The basic URL, with or without query
@@ -168,8 +161,6 @@ class Horde_Url
             }
         }
 
-        unset($this->_cache);
-
         return $this;
     }
 
@@ -190,8 +181,6 @@ class Horde_Url
         foreach ($parameters as $parameter) {
             unset($this->parameters[$parameter]);
         }
-
-        unset($this->_cache);
 
         return $this;
     }
@@ -275,8 +264,8 @@ class Horde_Url
             }
         }
 
-        if ($params = $this->_getParameters()) {
-            $url .= '?' . implode($raw ? '&' : '&amp;', $params);
+        if ($params = $this->parameters) {
+            $url .= '?' . http_build_query($params, "", $raw ? '&' : '&amp;');
         }
 
         if ($this->anchor) {
@@ -284,33 +273,6 @@ class Horde_Url
         }
 
         return strval($url);
-    }
-
-    /**
-     * Return a formatted list of URL parameters.
-     *
-     * @return array  Parameter list.
-     */
-    protected function _getParameters()
-    {
-        if (!isset($this->_cache)) {
-            $params = array();
-
-            foreach ($this->parameters as $p => $v) {
-                if (is_array($v)) {
-                    foreach ($v as $val) {
-                        $params[] = rawurlencode($p) . '[]=' . rawurlencode($val);
-                    }
-                } else {
-                    $params[] = rawurlencode($p) .
-                        (strlen($v) ? ('=' . rawurlencode($v)) : '');
-                }
-            }
-
-            $this->_cache = $params;
-        }
-
-        return $this->_cache;
     }
 
     /**
