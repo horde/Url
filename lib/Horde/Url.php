@@ -265,6 +265,14 @@ class Horde_Url
         }
 
         if ($params = $this->parameters) {
+            foreach ($params as $p => &$v) {
+                // TODO: Investigate if it should be done for all (or some) other objects
+                if ($v instanceof Horde_Url) {
+                    $v = strval($v);
+                }
+            }
+            unset($v);
+
             $url .= '?' . http_build_query($params, "", $raw ? '&' : '&amp;');
         }
 
@@ -272,7 +280,7 @@ class Horde_Url
             $url .= '#' . ($raw ? $this->anchor : rawurlencode($this->anchor));
         }
 
-        return strval($url);
+        return $url;
     }
 
     /**
@@ -297,7 +305,7 @@ class Horde_Url
      */
     public function link(array $attributes = array())
     {
-        $url = (string)$this->setRaw(false);
+        $url = strval($this->setRaw(false));
         $link = '<a';
         if (!empty($url)) {
             $link .= " href=\"$url\"";
