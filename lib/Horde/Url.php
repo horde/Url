@@ -264,16 +264,10 @@ class Horde_Url
             }
         }
 
-        if ($params = $this->parameters) {
-            foreach ($params as $p => &$v) {
-                // TODO: Investigate if it should be done for all (or some) other objects
-                if ($v instanceof Horde_Url) {
-                    $v = strval($v);
-                }
-            }
-            unset($v);
-
-            $url .= '?' . http_build_query($params, "", $raw ? '&' : '&amp;');
+        if ($source = $this->parameters) {
+            $params = [];
+            self::encodeParameters($source, '', $params);
+            $url .= '?' . implode($raw ? '&' : '&amp;', $params);
         }
 
         if ($this->anchor) {
@@ -281,6 +275,38 @@ class Horde_Url
         }
 
         return $url;
+    }
+
+    protected static function encodeParameters($source, $prefix, &$params)
+    {
+        $index = 0;
+
+        foreach ($source as $p => $v) {
+            if (strlen($prefix)) { 
+                if ($index >= 0 && $p !== $index) {
+                    $index = -1;
+                }
+                if ($index >= 0) {
+                    $p = '';
+                    ++$index;
+                } else {
+                   $p = rawurlencode($p);
+                }
+                $p = $prefix . '[' . $p . ']';
+            } else {
+               $p = rawurlencode($p);
+            }
+
+            if (is_array($v)) {
+                self::encodeParameters($v, $p, $params);
+            } else {
+                $v = (string) $v;
+                if (strlen($v)) {
+                    $p .= '=' . rawurlencode($v);
+                }
+                $params[] = $p;
+            }
+        }
     }
 
     /**
