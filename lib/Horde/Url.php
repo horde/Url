@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file contains the Horde_Url class for manipulating URLs.
  *
@@ -30,14 +31,14 @@ class Horde_Url
      *
      * @var string
      */
-    public $anchor = '';
+    public string $anchor = '';
 
     /**
      * Any PATH_INFO to be added to the URL.
      *
      * @var string
      */
-    public $pathInfo;
+    public string $pathInfo = '';
 
     /**
      * The query parameters.
@@ -47,7 +48,7 @@ class Horde_Url
      *
      * @var array
      */
-    public $parameters = array();
+    public array $parameters = [];
 
     /**
      * Whether to output the URL in the raw URL format or HTML-encoded.
@@ -114,7 +115,7 @@ class Horde_Url
             $pairs = explode('&', $query);
             foreach ($pairs as $pair) {
                 $result = explode('=', urldecode($pair), 2);
-                $this->add($result[0], isset($result[1]) ? $result[1] : null);
+                $this->add($result[0], $result[1] ?? null);
             }
         }
 
@@ -146,14 +147,14 @@ class Horde_Url
     public function add($parameters, $value = null)
     {
         if (!is_array($parameters)) {
-            $parameters = array($parameters => $value);
+            $parameters = [$parameters => $value];
         }
 
         foreach ($parameters as $parameter => $value) {
             if (substr($parameter, -2) == '[]') {
                 $parameter = substr($parameter, 0, -2);
                 if (!isset($this->parameters[$parameter])) {
-                    $this->parameters[$parameter] = array();
+                    $this->parameters[$parameter] = [];
                 }
                 $this->parameters[$parameter][] = $value;
             } else {
@@ -175,7 +176,7 @@ class Horde_Url
     public function remove($parameters)
     {
         if (!is_array($parameters)) {
-            $parameters = array($parameters);
+            $parameters = [$parameters];
         }
 
         foreach ($parameters as $parameter) {
@@ -255,7 +256,7 @@ class Horde_Url
             ? $this->url
             : parse_url($this->url, PHP_URL_PATH);
 
-        if (is_string($this->pathInfo) && strlen($this->pathInfo)) {
+        if (strlen($this->pathInfo)) {
             $url = rtrim($url, '/') . '/';
             if ($raw) {
                 $url .= $this->pathInfo;
@@ -282,7 +283,7 @@ class Horde_Url
         $index = 0;
 
         foreach ($source as $p => $v) {
-            if (strlen($prefix)) { 
+            if (strlen($prefix)) {
                 if ($index >= 0 && $p !== $index) {
                     $index = -1;
                 }
@@ -290,11 +291,11 @@ class Horde_Url
                     $p = '';
                     ++$index;
                 } else {
-                   $p = rawurlencode($p);
+                    $p = rawurlencode($p);
                 }
                 $p = $prefix . '[' . $p . ']';
             } else {
-               $p = rawurlencode($p);
+                $p = rawurlencode($p);
             }
 
             if (is_array($v)) {
@@ -329,7 +330,7 @@ class Horde_Url
      *
      * @return string  An <a> tag representing this URL.
      */
-    public function link(array $attributes = array())
+    public function link(array $attributes = [])
     {
         $url = strval($this->setRaw(false));
         $link = '<a';
@@ -386,7 +387,7 @@ class Horde_Url
      */
     public static function uriB64Encode($string)
     {
-        return str_replace(array('+', '/', '='), array('-', '_', ''), base64_encode($string));
+        return str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($string));
     }
 
     /**
@@ -398,7 +399,7 @@ class Horde_Url
      */
     public static function uriB64Decode($string)
     {
-        $data = str_replace(array('-', '_'), array('+', '/'), $string);
+        $data = str_replace(['-', '_'], ['+', '/'], $string);
         $mod4 = strlen($data) % 4;
         if ($mod4) {
             $data .= substr('====', $mod4);
