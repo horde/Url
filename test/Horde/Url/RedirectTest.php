@@ -14,6 +14,7 @@ class RedirectTest extends TestCase
 {
     public function testEmptyRedirect()
     {
+        // PSR-0 wrapper should throw PSR-0 exception
         $this->expectException('Horde_Url_Exception');
         $url = new Horde_Url('');
         $url->redirect();
