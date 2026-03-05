@@ -3,9 +3,14 @@
 /**
  * PSR-0 backward compatibility wrapper for Horde\Url\Url.
  *
- * This wrapper maintains the legacy mutable API and loose typing.
- * All operations are forwarded to the strict PSR-4 implementation
- * with explicit type casting.
+ * This class provides backward compatibility for legacy code that:
+ * - Uses loose type hints (no type declarations)
+ * - Extends Horde_Url (like Horde_Core_Smartmobile_Url)
+ * - Directly accesses public properties (anchor, pathInfo, parameters, etc.)
+ * - Sets properties before calling parent::__construct()
+ *
+ * Implementation uses composition (wrapping) instead of inheritance to avoid
+ * method signature conflicts with PHP 8.2+ strict typing requirements.
  *
  * Copyright 2009-2026 Horde LLC (http://www.horde.org/)
  *
@@ -23,40 +28,78 @@ class Horde_Url
     /**
      * Modern URL instance (does the real work).
      *
-     * @var \Horde\Url\Url
+     * @var \Horde\Url\Url|null
      */
     protected $_modern;
 
     /**
+     * Buffer for properties set before _modern is initialized.
+     *
+     * @var array
+     */
+    private $_propertyBuffer = [];
+
+    /**
      * Constructor.
      *
-     * @param string $url   The basic URL, with or without query parameters.
-     * @param bool|null $raw  Whether to output the URL in the raw URL format or HTML-encoded.
+     * @param string|Horde_Url|\Horde\Url\Url $url  The basic URL.
+     * @param mixed $raw  Whether to output URL in raw format or HTML-encoded.
      */
     public function __construct($url = '', $raw = null)
     {
-        $this->_modern = new \Horde\Url\Url($url, $raw);
+        // Handle Horde_Url or \Horde\Url\Url being passed in
+        if ($url instanceof \Horde\Url\Url) {
+            $this->_modern = clone $url;
+            if ($raw !== null) {
+                $this->_modern->raw = (bool) $raw;
+            }
+        } elseif ($url instanceof self) {
+            $this->_modern = clone $url->_modern;
+            if ($raw !== null) {
+                $this->_modern->raw = (bool) $raw;
+            }
+        } else {
+            $this->_modern = new \Horde\Url\Url((string) $url, $raw !== null ? (bool) $raw : null);
+        }
+
+        // Apply any buffered property sets
+        foreach ($this->_propertyBuffer as $name => $value) {
+            $this->_modern->$name = $value;
+        }
+        $this->_propertyBuffer = [];
     }
 
     /**
      * Magic getter for public properties.
+     *
+     * Delegates to the wrapped modern instance.
      *
      * @param string $name Property name
      * @return mixed Property value
      */
     public function __get($name)
     {
+        if ($this->_modern === null) {
+            return $this->_propertyBuffer[$name] ?? null;
+        }
         return $this->_modern->$name;
     }
 
     /**
      * Magic setter for public properties.
      *
+     * Delegates to the wrapped modern instance.
+     *
      * @param string $name Property name
      * @param mixed $value Property value
      */
     public function __set($name, $value)
     {
+        if ($this->_modern === null) {
+            // Buffer property sets that happen before __construct() is called
+            $this->_propertyBuffer[$name] = $value;
+            return;
+        }
         $this->_modern->$name = $value;
     }
 
@@ -68,6 +111,9 @@ class Horde_Url
      */
     public function __isset($name)
     {
+        if ($this->_modern === null) {
+            return isset($this->_propertyBuffer[$name]);
+        }
         return isset($this->_modern->$name);
     }
 
@@ -79,7 +125,7 @@ class Horde_Url
     public function copy()
     {
         $copy = new self();
-        $copy->_modern = clone $this->_modern;
+        $copy->_modern = $this->_modern->copy();
         return $copy;
     }
 
@@ -132,7 +178,7 @@ class Horde_Url
      */
     public function setRaw($raw)
     {
-        $this->_modern->setRaw($raw);
+        $this->_modern->setRaw((bool) $raw);
         return $this;
     }
 
@@ -146,7 +192,7 @@ class Horde_Url
      */
     public function setScheme($scheme = 'http', $replace = false)
     {
-        $this->_modern->setScheme($scheme, $replace);
+        $this->_modern->setScheme($scheme, (bool) $replace);
         return $this;
     }
 
@@ -184,7 +230,25 @@ class Horde_Url
      */
     public function link($attributes = [])
     {
-        return $this->_modern->link($attributes);
+        // Use $this->toString() to respect overridden toString() in subclasses
+        $url = $this->toString(false);
+        $link = '<a';
+        if (!empty($url)) {
+            $link .= ' href="' . $url . '"';
+        }
+        foreach ($attributes as $name => $value) {
+            if (!strlen((string) $value)) {
+                continue;
+            }
+            if (substr($name, -4) === '.raw') {
+                $link .= ' ' . htmlspecialchars(substr($name, 0, -4))
+                    . '="' . $value . '"';
+            } else {
+                $link .= ' ' . htmlspecialchars($name)
+                    . '="' . htmlspecialchars((string) $value) . '"';
+            }
+        }
+        return $link . '>';
     }
 
     /**
@@ -205,11 +269,14 @@ class Horde_Url
      */
     public function redirect()
     {
-        try {
-            $this->_modern->redirect();
-        } catch (\Horde\Url\UrlException $e) {
-            throw new Horde_Url_Exception($e->getMessage(), $e->getCode(), $e);
+        // Use $this->toString() to respect overridden toString() in subclasses
+        $url = $this->toString(true);  // raw = true for redirect
+        if (!strlen($url)) {
+            throw new Horde_Url_Exception('Redirect failed: URL is empty.');
         }
+
+        header('Location: ' . $url);
+        exit;
     }
 
     /**
