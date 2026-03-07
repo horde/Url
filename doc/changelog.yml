@@ -9,7 +9,6 @@
     identifier: LGPL-2.1
     uri: http://www.horde.org/licenses/lgpl21
   notes: |+
-    
 3.0.0alpha5:
   api: 3.0.0alpha1
   state:
@@ -64,6 +63,26 @@
     identifier: LGPL-2.1
     uri: http://www.horde.org/licenses/lgpl21
   notes: ~
+3.0.0-alpha7:
+  api: 3.0.0-alpha7
+  state:
+    release: alpha
+    api: alpha
+  date: 2026-03-07
+  license:
+    identifier: LGPL-2.1-only
+    uri: https://spdx.org/licenses/LGPL-2.1-only.html
+  notes: |-
+    fix: proper composition-based BC shim with full property delegation
+    fix: proper BC shim for Horde_Url with composition pattern
+    feat: add PSR-4 support with strict typing and backward-compatible PSR-0 wrappers
+    Merge pull request #5 from amulet1/fix_pathinfo
+    fix: Initialize $pathInfo to avoid issues with unexpected null value in classes extending Horde_Url
+    Merge pull request #4 from amulet1/tostring_fixes
+    fix: Reimplement parameters encoding in Horde_Url's toString() method to restore the intended functionality
+    Merge pull request #2 from amulet1/FRAMEWORK_6_0
+    fix: Correct Horde_Url's toString() method
+    Development mode for Url-3.0.0alpha6
 2.2.6:
   api: 2.2.0
   state:
@@ -163,28 +182,6 @@
     uri: http://www.horde.org/licenses/lgpl21
   notes: |
     [mms] Use new Horde_Test layout.
-2.0.0:
-  api: 1.1.0
-  state:
-    release: stable
-    api: stable
-  date: 2012-10-30
-  license:
-    identifier: LGPL-2.1
-    uri: http://www.horde.org/licenses/lgpl21
-  notes: |
-    First stable release for Horde 5.
-2.0.0RC1:
-  api: 1.1.0
-  state:
-    release: beta
-    api: stable
-  date: 2012-10-26
-  license:
-    identifier: LGPL-2.1
-    uri: http://www.horde.org/licenses/lgpl21
-  notes: |
-    [mms] Fix copying all parameters when cloning a Horde_Url object in the constructor.
 2.0.0beta3:
   api: 1.1.0
   state:
@@ -230,6 +227,28 @@
     uri: http://www.horde.org/licenses/lgpl21
   notes: |
     First alpha release for Horde 5.
+2.0.0RC1:
+  api: 1.1.0
+  state:
+    release: beta
+    api: stable
+  date: 2012-10-26
+  license:
+    identifier: LGPL-2.1
+    uri: http://www.horde.org/licenses/lgpl21
+  notes: |
+    [mms] Fix copying all parameters when cloning a Horde_Url object in the constructor.
+2.0.0:
+  api: 1.1.0
+  state:
+    release: stable
+    api: stable
+  date: 2012-10-30
+  license:
+    identifier: LGPL-2.1
+    uri: http://www.horde.org/licenses/lgpl21
+  notes: |
+    First stable release for Horde 5.
 1.0.2:
   api: 1.0.0
   state:
@@ -252,39 +271,6 @@
     uri: http://www.horde.org/licenses/lgpl21
   notes: |
     [rla] Add license file.
-1.0.0:
-  api: 1.0.0
-  state:
-    release: stable
-    api: stable
-  date: 2011-04-06
-  license:
-    identifier: LGPL-2.1
-    uri: http://www.horde.org/licenses/lgpl21
-  notes: |
-    First stable release for Horde 4.
-1.0.0RC2:
-  api: 1.0.0
-  state:
-    release: beta
-    api: beta
-  date: 2011-03-29
-  license:
-    identifier: LGPL-2.1
-    uri: http://www.horde.org/licenses/lgpl21
-  notes: |
-    Second release candidate for Horde 4.
-1.0.0RC1:
-  api: 1.0.0
-  state:
-    release: beta
-    api: beta
-  date: 2011-03-22
-  license:
-    identifier: LGPL-2.1
-    uri: http://www.horde.org/licenses/lgpl21
-  notes: |
-    First release candidate for Horde 4.
 1.0.0beta1:
   api: 1.0.0
   state:
@@ -314,3 +300,36 @@
     Add support for callback function for toString conversion.
     Add support for URL anchors.
     Added Horde_Url::uriB64Encode() and Horde_Url::uriB64Decode().
+1.0.0RC2:
+  api: 1.0.0
+  state:
+    release: beta
+    api: beta
+  date: 2011-03-29
+  license:
+    identifier: LGPL-2.1
+    uri: http://www.horde.org/licenses/lgpl21
+  notes: |
+    Second release candidate for Horde 4.
+1.0.0RC1:
+  api: 1.0.0
+  state:
+    release: beta
+    api: beta
+  date: 2011-03-22
+  license:
+    identifier: LGPL-2.1
+    uri: http://www.horde.org/licenses/lgpl21
+  notes: |
+    First release candidate for Horde 4.
+1.0.0:
+  api: 1.0.0
+  state:
+    release: stable
+    api: stable
+  date: 2011-04-06
+  license:
+    identifier: LGPL-2.1
+    uri: http://www.horde.org/licenses/lgpl21
+  notes: |
+    First stable release for Horde 4.
