@@ -118,6 +118,18 @@ class Horde_Url
     }
 
     /**
+     * Magic clone method to ensure deep cloning of the wrapped modern instance.
+     *
+     * @return void
+     */
+    public function __clone()
+    {
+        if ($this->_modern !== null) {
+            $this->_modern = clone $this->_modern;
+        }
+    }
+
+    /**
      * Returns a clone of this object. Useful for chaining.
      *
      * @return self  A clone of this object.
