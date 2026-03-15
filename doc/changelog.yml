@@ -63,6 +63,22 @@
     identifier: LGPL-2.1
     uri: http://www.horde.org/licenses/lgpl21
   notes: ~
+3.0.0-alpha8:
+  api: 3.0.0-alpha8
+  state:
+    release: alpha
+    api: alpha
+  date: 2026-03-15
+  license:
+    identifier: LGPL-2.1-only
+    uri: https://spdx.org/licenses/LGPL-2.1-only.html
+  notes: |-
+    fix(url): add __clone() to properly deep-clone wrapped modern instance
+    test(url): add test reproducing SmartmobileUrl clone vs copy issue
+    Merge pull request #3 from horde/TDannhauer-Additional-tests-for-horde/url
+    Create StringableParamTest.php
+    Create NestedParamHordeUrlTest.php
+    Create HordeUrlParamRawModeTest.php
 3.0.0-alpha7:
   api: 3.0.0-alpha7
   state:
