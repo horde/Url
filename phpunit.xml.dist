@@ -1,15 +1,29 @@
 <?xml version="1.0"?>
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         bootstrap="test/Horde/Url/bootstrap.php"
+         bootstrap="vendor/autoload.php"
          colors="true"
+         defaultTestSuite="unit"
          xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/12.0/phpunit.xsd"
-         cacheDirectory=".phpunit.cache">
+         cacheDirectory=".phpunit.cache"
+         displayDetailsOnTestsThatTriggerDeprecations="true"
+         displayDetailsOnTestsThatTriggerErrors="true"
+         displayDetailsOnTestsThatTriggerNotices="true"
+         displayDetailsOnTestsThatTriggerWarnings="true"
+         failOnDeprecation="true"
+         failOnNotice="true"
+         failOnWarning="true">
   <testsuites>
-    <testsuite name="horde/Url PSR-0">
-      <directory>test/Horde</directory>
-    </testsuite>
-    <testsuite name="horde/Url PSR-4">
+    <testsuite name="unit">
       <directory>test/unit</directory>
+    </testsuite>
+    <testsuite name="integration">
+      <directory>test/integration</directory>
+    </testsuite>
+    <testsuite name="live">
+      <directory>test/live</directory>
+    </testsuite>
+    <testsuite name="psr0">
+      <directory>test/Horde</directory>
     </testsuite>
   </testsuites>
   <source>

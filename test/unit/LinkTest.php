@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Horde\Url\Test\Unit;
 
 use Horde\Url\Url;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -13,6 +14,7 @@ use PHPUnit\Framework\TestCase;
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package  Url
  */
+#[CoversClass(Url::class)]
 class LinkTest extends TestCase
 {
     public function testLinkSimple(): void
