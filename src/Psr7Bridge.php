@@ -38,7 +38,7 @@ class Psr7Bridge
         // Auto-detect PSR-7 implementation if not specified
         if ($factoryClass === null) {
             $implementations = [
-                '\\Horde\\Http\\Psr7\\Uri',    // horde/http
+                '\\Horde\\Http\\Uri',            // horde/http
                 '\\Nyholm\\Psr7\\Uri',          // nyholm/psr7
                 '\\GuzzleHttp\\Psr7\\Uri',      // guzzlehttp/psr7
                 '\\Laminas\\Diactoros\\Uri',    // laminas/laminas-diactoros

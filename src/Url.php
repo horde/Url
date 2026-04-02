@@ -208,7 +208,7 @@ class Url implements Stringable
         if ($pos === false) {
             $this->url = $scheme . '://' . $this->url;
         } elseif ($replace) {
-            $this->url = substr_replace($this->url, $scheme . '://', 0, $pos);
+            $this->url = $scheme . '://' . substr($this->url, $pos + 3);
         }
         return $this;
     }
