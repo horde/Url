@@ -2,7 +2,7 @@
 id: Url
 name: Url
 full: URL library
-description: A library that provides URL objects and methods for manipulating URLs.
+description: A library that provides URL objects and methods for manipulating URLs, including a bridge from/to PSR-7 uris
 list: dev
 type: library
 homepage: https://www.horde.org/libraries/Horde_Url
@@ -35,8 +35,9 @@ dependencies:
       horde/exception: ^3
   optional:
     composer:
-      horde/test: ^3
-      phpunit/phpunit: ^11 || ^12
       horde/http: ^3
       psr/http-message: For PSR-7 interoperability via Psr7Bridge
+keywords:
+  - uri
+  - psr-7
 vendor: horde
