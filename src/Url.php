@@ -228,12 +228,12 @@ class Url implements Stringable
             $this->toStringCallback = null;
             $ret = call_user_func($callback, $this);
             $this->toStringCallback = $callback;
-            return $ret;
+            return (string) $ret;
         }
 
         $url = $full
             ? $this->url
-            : parse_url($this->url, PHP_URL_PATH);
+            : (parse_url($this->url, PHP_URL_PATH) ?? '');
 
         if (strlen($this->pathInfo)) {
             $url = rtrim($url, '/') . '/';
