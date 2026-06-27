@@ -1,68 +1,14 @@
 ---
-3.0.0alpha6:
-  api: 3.0.0alpha1
-  state:
-    release: alpha
-    api: alpha
-  date: 2024-01-10
-  license:
-    identifier: LGPL-2.1
-    uri: http://www.horde.org/licenses/lgpl21
-  notes: |+
-3.0.0alpha5:
-  api: 3.0.0alpha1
-  state:
-    release: alpha
-    api: alpha
-  date: 2024-01-10
-  license:
-    identifier: LGPL-2.1
-    uri: http://www.horde.org/licenses/lgpl21
-  notes: |
-    [rla] Drop own implementation of query string formatting in favour of PHP builtin solution.
-    |+
-3.0.0alpha4:
-  api: 3.0.0alpha1
-  state:
-    release: alpha
-    api: alpha
-  date: 2022-10-08
-  license:
-    identifier: LGPL-2.1
-    uri: http://www.horde.org/licenses/lgpl21
-  notes: |
-    [rla] Safeguard against a type error.
-    |+
-3.0.0alpha3:
-  api: 3.0.0alpha1
-  state:
-    release: alpha
-    api: alpha
-  date: 2021-03-13
-  license:
-    identifier: LGPL-2.1
-    uri: http://www.horde.org/licenses/lgpl21
-  notes: |+
-3.0.0alpha2:
-  api: 3.0.0alpha1
-  state:
-    release: alpha
-    api: alpha
-  date: 2021-02-24
-  license:
-    identifier: LGPL-2.1
-    uri: http://www.horde.org/licenses/lgpl21
-  notes: |+
-3.0.0alpha1:
-  api: 3.0.0alpha1
+3.0.0:
+  api: 3.0.0
   state:
     release: stable
     api: stable
-  date: 2021-02-24
+  date: 2026-06-27
   license:
-    identifier: LGPL-2.1
-    uri: http://www.horde.org/licenses/lgpl21
-  notes: ~
+    identifier: LGPL-2.1-only
+    uri: https://spdx.org/licenses/LGPL-2.1-only.html
+  notes: "chore: refresh qc fixes and platform deps\nchore: Update workflow dependency"
 3.0.0-beta2:
   api: 3.0.0-beta2
   state:
@@ -72,8 +18,7 @@
   license:
     identifier: LGPL-2.1-only
     uri: https://spdx.org/licenses/LGPL-2.1-only.html
-  notes: |-
-    fix: harden against null
+  notes: 'fix: harden against null'
 3.0.0-beta1:
   api: 3.0.0-beta1
   state:
@@ -83,10 +28,7 @@
   license:
     identifier: LGPL-2.1-only
     uri: https://spdx.org/licenses/LGPL-2.1-only.html
-  notes: |-
-    docs: UPGRADING guide
-    test: Add missing test coverage
-    fix: Bug in url scheme construction in PSR-7 bridge
+  notes: "docs: UPGRADING guide\ntest: Add missing test coverage\nfix: Bug in url scheme construction in PSR-7 bridge"
 3.0.0-alpha8:
   api: 3.0.0-alpha8
   state:
@@ -96,13 +38,7 @@
   license:
     identifier: LGPL-2.1-only
     uri: https://spdx.org/licenses/LGPL-2.1-only.html
-  notes: |-
-    fix(url): add __clone() to properly deep-clone wrapped modern instance
-    test(url): add test reproducing SmartmobileUrl clone vs copy issue
-    Merge pull request #3 from horde/TDannhauer-Additional-tests-for-horde/url
-    Create StringableParamTest.php
-    Create NestedParamHordeUrlTest.php
-    Create HordeUrlParamRawModeTest.php
+  notes: "fix(url): add __clone() to properly deep-clone wrapped modern instance\ntest(url): add test reproducing SmartmobileUrl clone vs copy issue\nMerge pull request #3 from horde/TDannhauer-Additional-tests-for-horde/url\nCreate StringableParamTest.php\nCreate NestedParamHordeUrlTest.php\nCreate HordeUrlParamRawModeTest.php"
 3.0.0-alpha7:
   api: 3.0.0-alpha7
   state:
@@ -112,17 +48,67 @@
   license:
     identifier: LGPL-2.1-only
     uri: https://spdx.org/licenses/LGPL-2.1-only.html
-  notes: |-
-    fix: proper composition-based BC shim with full property delegation
-    fix: proper BC shim for Horde_Url with composition pattern
-    feat: add PSR-4 support with strict typing and backward-compatible PSR-0 wrappers
-    Merge pull request #5 from amulet1/fix_pathinfo
-    fix: Initialize $pathInfo to avoid issues with unexpected null value in classes extending Horde_Url
-    Merge pull request #4 from amulet1/tostring_fixes
-    fix: Reimplement parameters encoding in Horde_Url's toString() method to restore the intended functionality
-    Merge pull request #2 from amulet1/FRAMEWORK_6_0
-    fix: Correct Horde_Url's toString() method
-    Development mode for Url-3.0.0alpha6
+  notes: "fix: proper composition-based BC shim with full property delegation\nfix: proper BC shim for Horde_Url with composition pattern\nfeat: add PSR-4 support with strict typing and backward-compatible PSR-0 wrappers\nMerge pull request #5 from amulet1/fix_pathinfo\nfix: Initialize $pathInfo to avoid issues with unexpected null value in classes extending Horde_Url\nMerge pull request #4 from amulet1/tostring_fixes\nfix: Reimplement parameters encoding in Horde_Url's toString() method to restore the intended functionality\nMerge pull request #2 from amulet1/FRAMEWORK_6_0\nfix: Correct Horde_Url's toString() method\nDevelopment mode for Url-3.0.0alpha6"
+3.0.0alpha6:
+  api: 3.0.0alpha1
+  state:
+    release: alpha
+    api: alpha
+  date: 2024-01-10
+  license:
+    identifier: LGPL-2.1
+    uri: http://www.horde.org/licenses/lgpl21
+  notes: ''
+3.0.0alpha5:
+  api: 3.0.0alpha1
+  state:
+    release: alpha
+    api: alpha
+  date: 2024-01-10
+  license:
+    identifier: LGPL-2.1
+    uri: http://www.horde.org/licenses/lgpl21
+  notes: "[rla] Drop own implementation of query string formatting in favour of PHP builtin solution.\n|+\n"
+3.0.0alpha4:
+  api: 3.0.0alpha1
+  state:
+    release: alpha
+    api: alpha
+  date: 2022-10-08
+  license:
+    identifier: LGPL-2.1
+    uri: http://www.horde.org/licenses/lgpl21
+  notes: "[rla] Safeguard against a type error.\n|+\n"
+3.0.0alpha3:
+  api: 3.0.0alpha1
+  state:
+    release: alpha
+    api: alpha
+  date: 2021-03-13
+  license:
+    identifier: LGPL-2.1
+    uri: http://www.horde.org/licenses/lgpl21
+  notes: ''
+3.0.0alpha2:
+  api: 3.0.0alpha1
+  state:
+    release: alpha
+    api: alpha
+  date: 2021-02-24
+  license:
+    identifier: LGPL-2.1
+    uri: http://www.horde.org/licenses/lgpl21
+  notes: ''
+3.0.0alpha1:
+  api: 3.0.0alpha1
+  state:
+    release: stable
+    api: stable
+  date: 2021-02-24
+  license:
+    identifier: LGPL-2.1
+    uri: http://www.horde.org/licenses/lgpl21
+  notes: null
 2.2.6:
   api: 2.2.0
   state:
@@ -132,8 +118,7 @@
   license:
     identifier: LGPL-2.1
     uri: http://www.horde.org/licenses/lgpl21
-  notes: |
-    [jan] SECURITY: Fix XSS vulnerability with pathinfo component in toString().
+  notes: "[jan] SECURITY: Fix XSS vulnerability with pathinfo component in toString().\n"
 2.2.5:
   api: 2.2.0
   state:
@@ -143,8 +128,7 @@
   license:
     identifier: LGPL-2.1
     uri: http://www.horde.org/licenses/lgpl21
-  notes: |
-    [jan] Mark PHP 7 as supported.
+  notes: "[jan] Mark PHP 7 as supported.\n"
 2.2.4:
   api: 2.2.0
   state:
@@ -154,8 +138,7 @@
   license:
     identifier: LGPL-2.1
     uri: http://www.horde.org/licenses/lgpl21
-  notes: |
-    [jan] Improve PSR-2 compatibility.
+  notes: "[jan] Improve PSR-2 compatibility.\n"
 2.2.3:
   api: 2.2.0
   state:
@@ -165,8 +148,7 @@
   license:
     identifier: LGPL-2.1
     uri: http://www.horde.org/licenses/lgpl21
-  notes: |
-    [mms] Catch/ignore invalid RFC 2397 data strings.
+  notes: "[mms] Catch/ignore invalid RFC 2397 data strings.\n"
 2.2.2:
   api: 2.2.0
   state:
@@ -176,8 +158,7 @@
   license:
     identifier: LGPL-2.1
     uri: http://www.horde.org/licenses/lgpl21
-  notes: |
-    [mms] Optimize Horde_Url#toString().
+  notes: "[mms] Optimize Horde_Url#toString().\n"
 2.2.1:
   api: 2.2.0
   state:
@@ -187,8 +168,7 @@
   license:
     identifier: LGPL-2.1
     uri: http://www.horde.org/licenses/lgpl21
-  notes: |
-    [mms] Use strpos() instead of preg_match() for simple string searches (Thomas Jarosch <thomas.jarosch@intra2net.com>, Request #12603).
+  notes: "[mms] Use strpos() instead of preg_match() for simple string searches (Thomas Jarosch <thomas.jarosch@intra2net.com>, Request #12603).\n"
 2.2.0:
   api: 2.2.0
   state:
@@ -198,8 +178,7 @@
   license:
     identifier: LGPL-2.1
     uri: http://www.horde.org/licenses/lgpl21
-  notes: |
-    [mms] Add Horde_Url_Data::isData().
+  notes: "[mms] Add Horde_Url_Data::isData().\n"
 2.1.0:
   api: 2.1.0
   state:
@@ -209,8 +188,7 @@
   license:
     identifier: LGPL-2.1
     uri: http://www.horde.org/licenses/lgpl21
-  notes: |
-    [mms] Add Horde_Url_Data class.
+  notes: "[mms] Add Horde_Url_Data class.\n"
 2.0.1:
   api: 1.1.0
   state:
@@ -220,64 +198,7 @@
   license:
     identifier: LGPL-2.1
     uri: http://www.horde.org/licenses/lgpl21
-  notes: |
-    [mms] Use new Horde_Test layout.
-2.0.0beta3:
-  api: 1.1.0
-  state:
-    release: beta
-    api: stable
-  date: 2012-10-12
-  license:
-    identifier: LGPL-2.1
-    uri: http://www.horde.org/licenses/lgpl21
-  notes: |
-    [mms] Make parameter generation extendable.
-2.0.0beta2:
-  api: 1.1.0
-  state:
-    release: beta
-    api: stable
-  date: 2012-08-29
-  license:
-    identifier: LGPL-2.1
-    uri: http://www.horde.org/licenses/lgpl21
-  notes: |
-    [mms] Add Horde_Url::setScheme().
-2.0.0beta1:
-  api: 1.0.0
-  state:
-    release: beta
-    api: stable
-  date: 2012-07-19
-  license:
-    identifier: LGPL-2.1
-    uri: http://www.horde.org/licenses/lgpl21
-  notes: |
-    First beta release for Horde 5.
-    [jan] Make constructor parameters optional for empty URLs.
-2.0.0alpha1:
-  api: 1.0.0
-  state:
-    release: alpha
-    api: stable
-  date: 2012-07-06
-  license:
-    identifier: LGPL-2.1
-    uri: http://www.horde.org/licenses/lgpl21
-  notes: |
-    First alpha release for Horde 5.
-2.0.0RC1:
-  api: 1.1.0
-  state:
-    release: beta
-    api: stable
-  date: 2012-10-26
-  license:
-    identifier: LGPL-2.1
-    uri: http://www.horde.org/licenses/lgpl21
-  notes: |
-    [mms] Fix copying all parameters when cloning a Horde_Url object in the constructor.
+  notes: "[mms] Use new Horde_Test layout.\n"
 2.0.0:
   api: 1.1.0
   state:
@@ -287,8 +208,57 @@
   license:
     identifier: LGPL-2.1
     uri: http://www.horde.org/licenses/lgpl21
-  notes: |
-    First stable release for Horde 5.
+  notes: "First stable release for Horde 5.\n"
+2.0.0RC1:
+  api: 1.1.0
+  state:
+    release: beta
+    api: stable
+  date: 2012-10-26
+  license:
+    identifier: LGPL-2.1
+    uri: http://www.horde.org/licenses/lgpl21
+  notes: "[mms] Fix copying all parameters when cloning a Horde_Url object in the constructor.\n"
+2.0.0beta3:
+  api: 1.1.0
+  state:
+    release: beta
+    api: stable
+  date: 2012-10-12
+  license:
+    identifier: LGPL-2.1
+    uri: http://www.horde.org/licenses/lgpl21
+  notes: "[mms] Make parameter generation extendable.\n"
+2.0.0beta2:
+  api: 1.1.0
+  state:
+    release: beta
+    api: stable
+  date: 2012-08-29
+  license:
+    identifier: LGPL-2.1
+    uri: http://www.horde.org/licenses/lgpl21
+  notes: "[mms] Add Horde_Url::setScheme().\n"
+2.0.0beta1:
+  api: 1.0.0
+  state:
+    release: beta
+    api: stable
+  date: 2012-07-19
+  license:
+    identifier: LGPL-2.1
+    uri: http://www.horde.org/licenses/lgpl21
+  notes: "First beta release for Horde 5.\n[jan] Make constructor parameters optional for empty URLs.\n"
+2.0.0alpha1:
+  api: 1.0.0
+  state:
+    release: alpha
+    api: stable
+  date: 2012-07-06
+  license:
+    identifier: LGPL-2.1
+    uri: http://www.horde.org/licenses/lgpl21
+  notes: "First alpha release for Horde 5.\n"
 1.0.2:
   api: 1.0.0
   state:
@@ -298,8 +268,7 @@
   license:
     identifier: LGPL-2.1
     uri: http://www.horde.org/licenses/lgpl21
-  notes: |
-    [mms] Don't encode anchor string if raw mode is enabled.
+  notes: "[mms] Don't encode anchor string if raw mode is enabled.\n"
 1.0.1:
   api: 1.0.0
   state:
@@ -309,59 +278,7 @@
   license:
     identifier: LGPL-2.1
     uri: http://www.horde.org/licenses/lgpl21
-  notes: |
-    [rla] Add license file.
-1.0.0beta1:
-  api: 1.0.0
-  state:
-    release: beta
-    api: beta
-  date: 2011-03-16
-  license:
-    identifier: LGPL-2.1
-    uri: http://www.horde.org/licenses/lgpl21
-  notes: |
-    First beta release for Horde 4.
-1.0.0alpha1:
-  api: 1.0.0
-  state:
-    release: alpha
-    api: alpha
-  date: 2011-03-08
-  license:
-    identifier: LGPL-2.1
-    uri: http://www.horde.org/licenses/lgpl21
-  notes: |
-    First alpha release for Horde 4.
-    Add ability to return relative URL when converting to string.
-    Add Horde_Url_Exception::.
-    Add Horde_Url::redirect().
-    Add Horde_Url::unique().
-    Add support for callback function for toString conversion.
-    Add support for URL anchors.
-    Added Horde_Url::uriB64Encode() and Horde_Url::uriB64Decode().
-1.0.0RC2:
-  api: 1.0.0
-  state:
-    release: beta
-    api: beta
-  date: 2011-03-29
-  license:
-    identifier: LGPL-2.1
-    uri: http://www.horde.org/licenses/lgpl21
-  notes: |
-    Second release candidate for Horde 4.
-1.0.0RC1:
-  api: 1.0.0
-  state:
-    release: beta
-    api: beta
-  date: 2011-03-22
-  license:
-    identifier: LGPL-2.1
-    uri: http://www.horde.org/licenses/lgpl21
-  notes: |
-    First release candidate for Horde 4.
+  notes: "[rla] Add license file.\n"
 1.0.0:
   api: 1.0.0
   state:
@@ -371,5 +288,44 @@
   license:
     identifier: LGPL-2.1
     uri: http://www.horde.org/licenses/lgpl21
-  notes: |
-    First stable release for Horde 4.
+  notes: "First stable release for Horde 4.\n"
+1.0.0RC2:
+  api: 1.0.0
+  state:
+    release: beta
+    api: beta
+  date: 2011-03-29
+  license:
+    identifier: LGPL-2.1
+    uri: http://www.horde.org/licenses/lgpl21
+  notes: "Second release candidate for Horde 4.\n"
+1.0.0RC1:
+  api: 1.0.0
+  state:
+    release: beta
+    api: beta
+  date: 2011-03-22
+  license:
+    identifier: LGPL-2.1
+    uri: http://www.horde.org/licenses/lgpl21
+  notes: "First release candidate for Horde 4.\n"
+1.0.0beta1:
+  api: 1.0.0
+  state:
+    release: beta
+    api: beta
+  date: 2011-03-16
+  license:
+    identifier: LGPL-2.1
+    uri: http://www.horde.org/licenses/lgpl21
+  notes: "First beta release for Horde 4.\n"
+1.0.0alpha1:
+  api: 1.0.0
+  state:
+    release: alpha
+    api: alpha
+  date: 2011-03-08
+  license:
+    identifier: LGPL-2.1
+    uri: http://www.horde.org/licenses/lgpl21
+  notes: "First alpha release for Horde 4.\nAdd ability to return relative URL when converting to string.\nAdd Horde_Url_Exception::.\nAdd Horde_Url::redirect().\nAdd Horde_Url::unique().\nAdd support for callback function for toString conversion.\nAdd support for URL anchors.\nAdded Horde_Url::uriB64Encode() and Horde_Url::uriB64Decode().\n"
