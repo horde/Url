@@ -27,20 +27,20 @@ class RawTest extends TestCase
     public function testRawConstructor(): void
     {
         $url = new Url('test?foo=1&bar=2', true);
-        $this->assertEquals('test?foo=1&bar=2', (string)$url);
+        $this->assertEquals('test?foo=1&bar=2', (string) $url);
     }
 
     public function testRawConstructorFalse(): void
     {
         $url = new Url('test?foo=1&bar=2', false);
-        $this->assertEquals('test?foo=1&amp;bar=2', (string)$url);
+        $this->assertEquals('test?foo=1&amp;bar=2', (string) $url);
     }
 
     public function testRawSetRaw(): void
     {
         $url = new Url('test?foo=1&bar=2');
         $url->setRaw(true);
-        $this->assertEquals('test?foo=1&bar=2', (string)$url);
+        $this->assertEquals('test?foo=1&bar=2', (string) $url);
     }
 
     public function testRawAnchor(): void

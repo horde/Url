@@ -84,9 +84,9 @@ class DataUrl implements Stringable
      */
     public function __construct(?string $data = null)
     {
-        if ($data !== null &&
-            self::isData($data) &&
-            ($fp = @fopen($data, 'r'))) {
+        if ($data !== null
+            && self::isData($data)
+            && ($fp = @fopen($data, 'r'))) {
             $this->data = stream_get_contents($fp);
             $meta = stream_get_meta_data($fp);
             $this->type = $meta['mediatype'];
@@ -101,8 +101,8 @@ class DataUrl implements Stringable
      */
     public function __toString(): string
     {
-        return 'data:' . htmlspecialchars($this->type) .
-            ($this->base64
+        return 'data:' . htmlspecialchars($this->type)
+            . ($this->base64
                 ? ';base64,' . base64_encode($this->data)
                 : ',' . rawurlencode($this->data));
     }

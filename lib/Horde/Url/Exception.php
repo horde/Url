@@ -13,6 +13,4 @@
  * @deprecated Use Horde\Url\UrlException instead. Will be removed in Horde 7.
  * @package  Url
  */
-class Horde_Url_Exception extends \Horde\Url\UrlException
-{
-}
+class Horde_Url_Exception extends Horde\Url\UrlException {}

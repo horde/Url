@@ -9,6 +9,9 @@
 
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @coversNothing
+ */
 class Horde_Url_ShimTest extends TestCase
 {
     public function testConstructorWithString(): void
@@ -172,7 +175,7 @@ class Horde_Url_ShimTest extends TestCase
     public function testExtendabilityWithLooseSignature(): void
     {
         // Test that subclasses can override toString with loose typing
-        $subclass = new class('test') extends Horde_Url {
+        $subclass = new class ('test') extends Horde_Url {
             public function toString($raw = false, $full = true)
             {
                 return 'custom:' . parent::toString($raw, $full);
@@ -196,7 +199,7 @@ class Horde_Url_ShimTest extends TestCase
 
     public function testConstructorAcceptsModernUrl(): void
     {
-        $modern = new \Horde\Url\Url('test?foo=1');
+        $modern = new Horde\Url\Url('test?foo=1');
         $legacy = new Horde_Url($modern);
         $this->assertStringContainsString('foo=1', $legacy->toString());
     }

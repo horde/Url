@@ -20,20 +20,20 @@ class ConstructorTest extends TestCase
     public function testConstructEmpty(): void
     {
         $url = new Url();
-        $this->assertEquals('', (string)$url);
+        $this->assertEquals('', (string) $url);
     }
 
     public function testConstructString(): void
     {
         $url = new Url('test');
-        $this->assertEquals('test', (string)$url);
+        $this->assertEquals('test', (string) $url);
     }
 
     public function testConstructUrl(): void
     {
         $url1 = new Url('test');
         $url2 = new Url($url1);
-        $this->assertEquals('test', (string)$url2);
+        $this->assertEquals('test', (string) $url2);
     }
 
     public function testConstructUrlWithRaw(): void

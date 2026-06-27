@@ -9,6 +9,9 @@
 
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @coversNothing
+ */
 class Horde_Url_SmartmobileCompatTest extends TestCase
 {
     /**
@@ -22,7 +25,7 @@ class Horde_Url_SmartmobileCompatTest extends TestCase
     public function testSmartmobileUrlPattern(): void
     {
         // Simulate Horde_Core_Smartmobile_Url behavior
-        $smartUrl = new class(new Horde_Url('http://example.com/app')) extends Horde_Url {
+        $smartUrl = new class (new Horde_Url('http://example.com/app')) extends Horde_Url {
             protected $_baseUrl;
 
             public function __construct($url = null, $raw = null)
@@ -93,7 +96,7 @@ class Horde_Url_SmartmobileCompatTest extends TestCase
         $baseUrl = new Horde_Url('http://example.com/app');
         $baseUrl->anchor = 'page?param=value';
 
-        $smartUrl = new class($baseUrl) extends Horde_Url {
+        $smartUrl = new class ($baseUrl) extends Horde_Url {
             protected $_baseUrl;
 
             public function __construct($url = null, $raw = null)
@@ -140,7 +143,7 @@ class Horde_Url_SmartmobileCompatTest extends TestCase
     {
         $baseUrl = new Horde_Url('http://example.com/app');
 
-        $smartUrl = new class($baseUrl) extends Horde_Url {
+        $smartUrl = new class ($baseUrl) extends Horde_Url {
             protected $_baseUrl;
 
             public function __construct($url = null, $raw = null)

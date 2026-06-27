@@ -28,7 +28,7 @@ class Horde_Url
     /**
      * Modern URL instance (does the real work).
      *
-     * @var \Horde\Url\Url|null
+     * @var Horde\Url\Url|null
      */
     protected $_modern;
 
@@ -42,13 +42,13 @@ class Horde_Url
     /**
      * Constructor.
      *
-     * @param string|Horde_Url|\Horde\Url\Url $url  The basic URL.
+     * @param string|Horde_Url|Horde\Url\Url $url  The basic URL.
      * @param mixed $raw  Whether to output URL in raw format or HTML-encoded.
      */
     public function __construct($url = '', $raw = null)
     {
         // Handle Horde_Url or \Horde\Url\Url being passed in
-        if ($url instanceof \Horde\Url\Url) {
+        if ($url instanceof Horde\Url\Url) {
             $this->_modern = clone $url;
             if ($raw !== null) {
                 $this->_modern->raw = (bool) $raw;
@@ -59,7 +59,7 @@ class Horde_Url
                 $this->_modern->raw = (bool) $raw;
             }
         } else {
-            $this->_modern = new \Horde\Url\Url((string) $url, $raw !== null ? (bool) $raw : null);
+            $this->_modern = new Horde\Url\Url((string) $url, $raw !== null ? (bool) $raw : null);
         }
 
         // Apply any buffered property sets
@@ -300,7 +300,7 @@ class Horde_Url
      */
     public static function uriB64Encode($string)
     {
-        return \Horde\Url\Url::uriB64Encode($string);
+        return Horde\Url\Url::uriB64Encode($string);
     }
 
     /**
@@ -312,6 +312,6 @@ class Horde_Url
      */
     public static function uriB64Decode($string)
     {
-        return \Horde\Url\Url::uriB64Decode($string);
+        return Horde\Url\Url::uriB64Decode($string);
     }
 }

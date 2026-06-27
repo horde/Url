@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2013-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2013-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -11,10 +12,12 @@
  * @package    Url
  * @subpackage UnitTests
  */
+
 namespace Horde\Url;
-use \PHPUnit\Framework\TestCase;
-use \Horde_Url;
-use \Horde_Url_Data;
+
+use PHPUnit\Framework\TestCase;
+use Horde_Url;
+use Horde_Url_Data;
 
 /**
  * Tests for the Horde_Url_Data class.
@@ -26,16 +29,17 @@ use \Horde_Url_Data;
  * @license    http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package    Url
  * @subpackage UnitTests
+ * @coversNothing
  */
 
 class UrlDataTest extends TestCase
 {
     public function testParsingDataUrl()
     {
-        $data = array(
+        $data = [
             'data:text/plain;base64,VGhpcyBpcyBhIHRlc3Qu',
-            'data:text/plain,This%20is%20a%20test.'
-        );
+            'data:text/plain,This%20is%20a%20test.',
+        ];
 
         foreach ($data as $val) {
             $ob = new Horde_Url_Data($val);
@@ -74,7 +78,7 @@ class UrlDataTest extends TestCase
         $this->assertFalse(Horde_Url_Data::isData(new Horde_Url()));
         $this->assertFalse(Horde_Url_Data::isData('foo'));
         $this->assertFalse(Horde_Url_Data::isData(333));
-        $this->assertFalse(Horde_Url_Data::isData(array(new Horde_Url_Data())));
+        $this->assertFalse(Horde_Url_Data::isData([new Horde_Url_Data()]));
 
         $this->assertTrue(Horde_Url_Data::isData(new Horde_Url_Data()));
         $this->assertTrue(Horde_Url_Data::isData('data:text/plain,Foo'));

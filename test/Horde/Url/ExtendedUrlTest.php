@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Test case reproducing the horde/Core SmartmobileUrl failure
  *
@@ -13,11 +14,14 @@
  */
 
 namespace Horde\Url;
-use \PHPUnit\Framework\TestCase;
-use \Horde_Url;
+
+use PHPUnit\Framework\TestCase;
+use Horde_Url;
+use InvalidArgumentException;
 
 /**
  * Test extending Horde_Url (similar to SmartmobileUrl in Core)
+ * @coversNothing
  */
 class ExtendedUrlTest extends TestCase
 {
@@ -31,7 +35,7 @@ class ExtendedUrlTest extends TestCase
         $extended->add(['foo' => 1, 'bar' => 2]);
 
         // Should preserve base URL 'test' with clone
-        $this->assertEquals('test?foo=1&amp;bar=2', (string)$extended);
+        $this->assertEquals('test?foo=1&amp;bar=2', (string) $extended);
     }
 
     public function testBaseUrlPreservationWithClone()
@@ -41,7 +45,7 @@ class ExtendedUrlTest extends TestCase
         $extended->add('foo', 'bar');
 
         // Base URL should be preserved with clone
-        $this->assertStringStartsWith('test?', (string)$extended);
+        $this->assertStringStartsWith('test?', (string) $extended);
     }
 
     public function testBaseUrlWithAnchor()
@@ -55,8 +59,8 @@ class ExtendedUrlTest extends TestCase
         $extended->setAnchor('anchor');
 
         // Should have base URL + anchor + params
-        $this->assertStringContainsString('test', (string)$extended);
-        $this->assertStringContainsString('#anchor', (string)$extended);
+        $this->assertStringContainsString('test', (string) $extended);
+        $this->assertStringContainsString('#anchor', (string) $extended);
     }
 }
 
@@ -75,7 +79,7 @@ class ExtendedUrlMockWithClone extends Horde_Url
             $url = new Horde_Url();
         }
         if (!($url instanceof Horde_Url)) {
-            throw new \InvalidArgumentException('Must be Horde_Url');
+            throw new InvalidArgumentException('Must be Horde_Url');
         }
 
         $this->_baseUrl = $url;

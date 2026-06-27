@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Bootstrap for Horde_Url tests (PSR-0 compatibility tests).
  */

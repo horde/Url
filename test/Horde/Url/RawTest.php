@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author     Jan Schneider <jan@horde.org>
  * @license    http://www.horde.org/licenses/lgpl21 LGPL 2.1
@@ -6,53 +7,58 @@
  * @package    Url
  * @subpackage UnitTests
  */
-namespace Horde\Url;
-use \PHPUnit\Framework\TestCase;
-use \Horde_Url;
 
+namespace Horde\Url;
+
+use PHPUnit\Framework\TestCase;
+use Horde_Url;
+
+/**
+ * @coversNothing
+ */
 class RawTest extends TestCase
 {
     public function testFromString()
     {
         $url = new Horde_Url('test?foo=1&bar=2');
-        $this->assertEquals('test?foo=1&bar=2', (string)$url);
+        $this->assertEquals('test?foo=1&bar=2', (string) $url);
         $url = new Horde_Url('test?foo=1&bar=2', true);
-        $this->assertEquals('test?foo=1&bar=2', (string)$url);
+        $this->assertEquals('test?foo=1&bar=2', (string) $url);
         $url = new Horde_Url('test?foo=1&bar=2', false);
-        $this->assertEquals('test?foo=1&amp;bar=2', (string)$url);
+        $this->assertEquals('test?foo=1&amp;bar=2', (string) $url);
 
         $url = new Horde_Url('test?foo=1&amp;bar=2');
-        $this->assertEquals('test?foo=1&amp;bar=2', (string)$url);
+        $this->assertEquals('test?foo=1&amp;bar=2', (string) $url);
         $url = new Horde_Url('test?foo=1&bar=2', true);
-        $this->assertEquals('test?foo=1&bar=2', (string)$url);
+        $this->assertEquals('test?foo=1&bar=2', (string) $url);
         $url = new Horde_Url('test?foo=1&bar=2', false);
-        $this->assertEquals('test?foo=1&amp;bar=2', (string)$url);
+        $this->assertEquals('test?foo=1&amp;bar=2', (string) $url);
 
         $url = new Horde_Url('test?foo=1&bar=2#baz');
-        $this->assertEquals('test?foo=1&bar=2#baz', (string)$url);
+        $this->assertEquals('test?foo=1&bar=2#baz', (string) $url);
 
         $url = new Horde_Url('test?foo=1&amp;bar=2#baz');
-        $this->assertEquals('test?foo=1&amp;bar=2#baz', (string)$url);
+        $this->assertEquals('test?foo=1&amp;bar=2#baz', (string) $url);
     }
 
     public function testFromUrl()
     {
         $baseurl = new Horde_Url('test', true);
-        $baseurl->add(array('foo' => 1, 'bar' => 2));
+        $baseurl->add(['foo' => 1, 'bar' => 2]);
         $url = new Horde_Url($baseurl);
-        $this->assertEquals('test?foo=1&bar=2', (string)$url);
+        $this->assertEquals('test?foo=1&bar=2', (string) $url);
         $url = new Horde_Url($baseurl, true);
-        $this->assertEquals('test?foo=1&bar=2', (string)$url);
+        $this->assertEquals('test?foo=1&bar=2', (string) $url);
         $url = new Horde_Url($baseurl, false);
-        $this->assertEquals('test?foo=1&amp;bar=2', (string)$url);
+        $this->assertEquals('test?foo=1&amp;bar=2', (string) $url);
 
         $baseurl = new Horde_Url('test', false);
-        $baseurl->add(array('foo' => 1, 'bar' => 2));
+        $baseurl->add(['foo' => 1, 'bar' => 2]);
         $url = new Horde_Url($baseurl);
-        $this->assertEquals('test?foo=1&amp;bar=2', (string)$url);
+        $this->assertEquals('test?foo=1&amp;bar=2', (string) $url);
         $url = new Horde_Url($baseurl, true);
-        $this->assertEquals('test?foo=1&bar=2', (string)$url);
+        $this->assertEquals('test?foo=1&bar=2', (string) $url);
         $url = new Horde_Url($baseurl, false);
-        $this->assertEquals('test?foo=1&amp;bar=2', (string)$url);
+        $this->assertEquals('test?foo=1&amp;bar=2', (string) $url);
     }
 }

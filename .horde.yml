@@ -9,14 +9,12 @@ list: dev
 type: library
 homepage: https://www.horde.org/libraries/Horde_Url
 authors:
-  -
-    name: Jan Schneider
+  - name: Jan Schneider
     user: jan
     email: jan@horde.org
     active: true
     role: lead
-  -
-    name: Michael Slusarz
+  - name: Michael Slusarz
     user: slusarz
     email: slusarz@horde.org
     active: false
@@ -43,3 +41,22 @@ keywords:
   - uri
   - psr-7
 vendor: horde
+
+quality:
+  phpstan:
+    level: 5
+ci-platform:
+  '8.1':
+    - php: ^7.4 || ^8
+  '8.2':
+    - php: ^7.4 || ^8
+  '8.3':
+    - php: ^7.4 || ^8
+  '8.4':
+    - php: ^7.4 || ^8
+  '8.5':
+    - php: ^7.4 || ^8
+  '8.6':
+    - php: ^7.4 || ^8
+ci-platform-flags:
+  needs_installer_plugin: false

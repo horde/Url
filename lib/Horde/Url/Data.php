@@ -13,6 +13,4 @@
  * @deprecated Use Horde\Url\DataUrl instead. Will be removed in Horde 7.
  * @package   Url
  */
-class Horde_Url_Data extends \Horde\Url\DataUrl
-{
-}
+class Horde_Url_Data extends Horde\Url\DataUrl {}

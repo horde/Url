@@ -116,7 +116,7 @@ class Psr7BridgeIntegrationTest extends TestCase
         $url->add([
             'filter' => 'active',
             'sort' => 'name',
-            'fields' => ['id', 'name', 'created']
+            'fields' => ['id', 'name', 'created'],
         ]);
         $url->setAnchor('results');
 

@@ -9,6 +9,7 @@ use Horde\Url\Url;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\UriInterface;
+use RuntimeException;
 
 /**
  * Unit tests for Horde\Url\Psr7Bridge using mocks.
@@ -84,7 +85,7 @@ class Psr7BridgeTest extends TestCase
     {
         $url = new Url('http://example.com');
 
-        $this->expectException(\RuntimeException::class);
+        $this->expectException(RuntimeException::class);
         $this->expectExceptionMessage('PSR-7 implementation not found');
 
         // Pass a non-existent class to force failure
@@ -95,7 +96,7 @@ class Psr7BridgeTest extends TestCase
     {
         $url = new Url('http://example.com');
 
-        $this->expectException(\RuntimeException::class);
+        $this->expectException(RuntimeException::class);
         $this->expectExceptionMessage('PSR-7 implementation not found: Some\\Fake\\Class');
 
         Psr7Bridge::toPsr7($url, 'Some\\Fake\\Class');

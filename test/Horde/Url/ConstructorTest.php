@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author     Michael Slusarz <slusarz@horde.org>
  * @category   Horde
@@ -6,16 +7,21 @@
  * @package    Url
  * @subpackage UnitTests
  */
-namespace Horde\Url;
-use \PHPUnit\Framework\TestCase;
-use \Horde_Url;
 
+namespace Horde\Url;
+
+use PHPUnit\Framework\TestCase;
+use Horde_Url;
+
+/**
+ * @coversNothing
+ */
 class ConstructorTest extends TestCase
 {
     public function testCopyAllParamsFromOriginal()
     {
         $orig = new Horde_Url('http://example.com/foo');
-        $orig->toStringCallback = array($this, 'stringCallback');
+        $orig->toStringCallback = [$this, 'stringCallback'];
 
         $copy = new Horde_Url($orig);
 

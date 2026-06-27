@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Horde\Url;
 
 use Psr\Http\Message\UriInterface;
+use RuntimeException;
 
 /**
  * PSR-7 bridge for Horde\Url.
@@ -31,7 +32,7 @@ class Psr7Bridge
      * @param string|null $factoryClass  The PSR-7 URI factory class to use. If null, auto-detect.
      *
      * @return UriInterface  PSR-7 URI object.
-     * @throws \RuntimeException if no PSR-7 implementation is available.
+     * @throws RuntimeException if no PSR-7 implementation is available.
      */
     public static function toPsr7(Url $url, ?string $factoryClass = null): UriInterface
     {
@@ -52,15 +53,15 @@ class Psr7Bridge
             }
 
             if ($factoryClass === null) {
-                throw new \RuntimeException(
-                    "No PSR-7 implementation found. " .
-                    "Install horde/http, nyholm/psr7, guzzlehttp/psr7, or laminas/laminas-diactoros."
+                throw new RuntimeException(
+                    "No PSR-7 implementation found. "
+                    . "Install horde/http, nyholm/psr7, guzzlehttp/psr7, or laminas/laminas-diactoros."
                 );
             }
         }
 
         if (!class_exists($factoryClass)) {
-            throw new \RuntimeException(
+            throw new RuntimeException(
                 "PSR-7 implementation not found: $factoryClass"
             );
         }

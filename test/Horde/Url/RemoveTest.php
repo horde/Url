@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author     Jan Schneider <jan@horde.org>
  * @license    http://www.horde.org/licenses/lgpl21 LGPL 2.1
@@ -6,53 +7,58 @@
  * @package    Url
  * @subpackage UnitTests
  */
-namespace Horde\Url;
-use \PHPUnit\Framework\TestCase;
-use \Horde_Url;
 
+namespace Horde\Url;
+
+use PHPUnit\Framework\TestCase;
+use Horde_Url;
+
+/**
+ * @coversNothing
+ */
 class RemoveTest extends TestCase
 {
     public function testRemoveRaw()
     {
         $url = new Horde_Url('test?foo=1&bar=2');
-        $this->assertEquals('test?bar=2', (string)$url->remove('foo'));
+        $this->assertEquals('test?bar=2', (string) $url->remove('foo'));
 
         $url = new Horde_Url('test?foo=1&bar=2');
-        $this->assertEquals('test?foo=1', (string)$url->remove('bar'));
+        $this->assertEquals('test?foo=1', (string) $url->remove('bar'));
 
         $url = new Horde_Url('test?foo=1&bar=2');
-        $this->assertEquals('test', (string)$url->remove(array('foo', 'bar')));
+        $this->assertEquals('test', (string) $url->remove(['foo', 'bar']));
 
         $url = new Horde_Url('test?foo=1&bar=2&baz=3');
-        $this->assertEquals('test?bar=2&baz=3', (string)$url->remove('foo'));
+        $this->assertEquals('test?bar=2&baz=3', (string) $url->remove('foo'));
 
         $url = new Horde_Url('test?foo=1#baz');
         $url->setAnchor('');
-        $this->assertEquals('test?foo=1', (string)$url);
+        $this->assertEquals('test?foo=1', (string) $url);
     }
 
     public function testRemoveEncoded()
     {
         $url = new Horde_Url('test?foo=1&amp;bar=2');
-        $this->assertEquals('test?bar=2', (string)$url->remove('foo'));
+        $this->assertEquals('test?bar=2', (string) $url->remove('foo'));
 
         $url = new Horde_Url('test?foo=1&amp;bar=2');
-        $this->assertEquals('test?foo=1', (string)$url->remove('bar'));
+        $this->assertEquals('test?foo=1', (string) $url->remove('bar'));
 
         $url = new Horde_Url('test?foo=1&amp;bar=2');
-        $this->assertEquals('test', (string)$url->remove(array('foo', 'bar')));
+        $this->assertEquals('test', (string) $url->remove(['foo', 'bar']));
 
         $url = new Horde_Url('test?foo=1&amp;bar=2&amp;baz=3');
-        $this->assertEquals('test?bar=2&amp;baz=3', (string)$url->remove('foo'));
+        $this->assertEquals('test?bar=2&amp;baz=3', (string) $url->remove('foo'));
 
         $url = new Horde_Url('test?foo=1&amp;bar=2#baz');
         $url->setAnchor('');
-        $this->assertEquals('test?foo=1&amp;bar=2', (string)$url);
+        $this->assertEquals('test?foo=1&amp;bar=2', (string) $url);
     }
 
     public function testRemoveChaining()
     {
         $url = new Horde_Url('test?foo=1&bar=2');
-        $this->assertEquals('test', (string)$url->remove('foo')->remove('bar'));
+        $this->assertEquals('test', (string) $url->remove('foo')->remove('bar'));
     }
 }

@@ -34,13 +34,13 @@ class DataUrlTest extends TestCase
     public function testToStringBase64(): void
     {
         $data = DataUrl::create('text/plain', 'test', true);
-        $this->assertEquals('data:text/plain;base64,' . base64_encode('test'), (string)$data);
+        $this->assertEquals('data:text/plain;base64,' . base64_encode('test'), (string) $data);
     }
 
     public function testToStringRaw(): void
     {
         $data = DataUrl::create('text/plain', 'test', false);
-        $this->assertEquals('data:text/plain,test', (string)$data);
+        $this->assertEquals('data:text/plain,test', (string) $data);
     }
 
     public function testIsDataString(): void
